@@ -1,0 +1,110 @@
+.select {
+    position: relative;
+}
+
+.select__toggle {
+    background: #391717;
+    border: 2px solid #C41414;
+    border-radius: 50px;
+    display: flex;
+    cursor: pointer;
+    align-items: center;
+    width: 100%;
+    padding: 0.375rem 0.75rem;
+    user-select: none;
+    justify-content: space-between;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 85%;
+    /* identical to box height */
+    color: #FFFFFF;
+}
+
+.select__toggle::after {
+    content: '';
+    width: 15px;
+    height: 7.5px;
+    flex-shrink: 0;
+    margin-left: 4px;
+    background-size: cover;
+    background-image: url('../img/Vector\ 15.svg');
+    transition: all 0.4s;
+}
+
+.select__toggle:focus {
+    outline: none;
+}
+
+.select_show .select__toggle::after {
+    transform: rotateX(180deg);
+}
+
+.select__dropdown {
+    max-height: 0px;
+    opacity: 0;
+    display: none;
+    position: absolute;
+    top: 2.5rem;
+    left: 0;
+    right: 0;
+    background: #391717;
+    /* red */
+    border: 2px solid #C41414;
+    border-radius: 20px;
+    max-height: 10rem;
+    overflow-y: auto;
+    z-index: 2;
+    transition: all 0.4s;
+}
+
+.select_show .select__dropdown {
+    opacity: 1;
+    max-height: 100px;
+    display: block;
+}
+
+.select_show .select__backdrop {
+    display: block;
+    gap: 10px;
+}
+
+.select__options {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.select__option {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 85%;
+    /* identical to box height */
+    color: #FFFFFF;
+    padding: 0.375rem 0.75rem;
+}
+
+.select__option_selected {
+    background-color: #391717;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.select__option_selected::after {
+    content: '';
+    width: 0.75rem;
+    height: 0.75rem;
+    color: #0277bd;
+    background-size: cover;
+    background-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" height="100" width="100" class="svg-inline--fa fa-check fa-w-16" data-icon="check" data-prefix="fas" aria-hidden="true"%3E%3Cpath d="M33.964 85.547l-32.5-32.251a4.935 4.935 0 010-7.017l7.071-7.017a5.027 5.027 0 017.071 0L37.5 60.987l46.894-46.534a5.028 5.028 0 017.07 0l7.072 7.017a4.935 4.935 0 010 7.017l-57.5 57.06a5.027 5.027 0 01-7.072 0z" fill="%230277bd"/%3E%3C/svg%3E');
+}
+
+.select__option:hover {
+    background-color: #4d2c2c;
+    cursor: pointer;
+    transition: 0.2s background-color ease-in-out;
+}
